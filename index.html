@@ -1,110 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kevin Yin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevin Yin | Personal Website</title>
+  <meta name="description" content="Kevin Yin – engineer, builder, and systems thinker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f9;
-      color: #333;
+    :root {
+      --bg: #0f1220;
+      --bg-soft: #171a2e;
+      --card: #1e2140;
+      --text: #e6e7ef;
+      --muted: #a8abc7;
+      --accent: #7aa2ff;
+      --accent-2: #4fd1c5;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-top: 30px;
-      border-bottom: 2px solid #0077b6;
-      padding-bottom: 5px;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    ul {
-      list-style: none;
       padding: 0;
     }
-    li {
-      margin-bottom: 10px;
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1b1f4a, transparent),
+                  radial-gradient(800px 500px at 90% 10%, #1a3d5a, transparent),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .sub-heading {
-      font-weight: bold;
-      margin-top: 20px;
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 3rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b1020;
+      font-weight: 600;
+      border: none;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #2b2f5a;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid #2b2f5a;
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      border-top: 1px solid #2b2f5a;
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Kevin Yin</h1>
-    <p>linkedin.com/in/yin-kevin | kyin42@gatech.edu</p>
+    <nav>
+      <div class="logo">Kevin Yin</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>Building reliable systems<br>and thoughtful software.</h1>
+        <p>
+          I'm Kevin — an engineer interested in infrastructure, distributed systems,
+          and making complex platforms reliable and boring (in a good way).
+        </p>
+        <div class="actions">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="https://github.com/" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section id="education">
-    <h2>Education</h2>
-    <p><strong>Georgia Institute of Technology</strong> <br> MS in Computer Science (GPA: 4.00/4.00) | Atlanta, GA | August 2023 - May 2025</p>
-    <ul>
-      <li>Representative Recent Coursework: Machine Learning, Computer Networks, Graduate Algorithms, Database Systems Concepts and Design, Network Science, Software Development Process</li>
-    </ul>
-    <p><strong>Georgia Institute of Technology</strong> <br> BS in Mathematics (GPA: 3.62/4.00) | Atlanta, GA | August 2017 - May 2022</p>
-    <ul>
-      <li>Representative Recent Coursework: Graph Theory, Stochastic Processes, Object Oriented Programming, Calculus III, Differential Equations, Information Theory, Probability Theory, Real Analysis, Complex Analysis</li>
+  <section id="about">
+    <h2>About</h2>
+    <p style="max-width: 700px; color: var(--muted)">
+      I enjoy working close to the metal and close to users — from Kubernetes controllers
+      and storage systems to internal platforms that other engineers depend on.
+      Outside of work, I like cooking, window shopping, and tinkering with side projects.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Quota Management System</h3>
+        <p>
+          A multi-cluster Kubernetes quota and enforcement system with custom CRDs,
+          caching, and concurrency-safe controllers.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Distributed File System</h3>
+        <p>
+          gRPC-based DFS with write locks, client-side caching, async callbacks,
+          and inotify-based synchronization.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Systems & Algorithms</h3>
+        <p>
+          Cache-oblivious funnel sort, MPI-based distributed merge sort,
+          and performance-focused C implementations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="color: var(--muted)">
+      You can reach me via email or find me online:
+    </p>
+    <ul style="margin-top: 1rem; list-style: none; display: flex; gap: 1.5rem; flex-wrap: wrap">
+      <li><a href="mailto:your@email.com">Email</a></li>
+      <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
     </ul>
   </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="sub-heading">Pinterest | Software Engineering Intern | Remote | June 2024 - September 2024</div>
-    <ul>
-      <li>Backend infrastructure software engineering intern on the Cloud Runtime Team.</li>
-      <li>Designed and implemented in Go a core dump support feature for our Kubernetes platform, enabling users to efficiently save and access core dumps for debugging purposes.</li>
-      <li>Enhanced developer experience by potentially reducing debugging time and increasing confidence in the platform’s reliability.</li>
-      <li>Collaborated with platform users to tailor the core dump feature to their specific use cases, ensuring its effectiveness and usability.</li>
-      <li>Engaged with cross-functional teams to make informed design choices and conducted presentations to both users and internal teams for feedback and improvements.</li>
-    </ul>
-    <div class="sub-heading">Emory School of Medicine | Research Specialist | Atlanta, GA | June 2022 - July 2023</div>
-    <ul>
-      <li>Established the novel machine learning bio-informatics data analysis pipeline for the lab, processing raw sequencing data and producing publishable figures and results.</li>
-      <li>Techniques include UMAP, T-SNE, K-means clustering, Differential Gene analysis, Gene Set enrichment, STAR alignment, Data Cleaning and Preparation.</li>
-      <li>Resulting figures helped PI gain a 2.5 million dollar Joint DOD grant to continue additional research.</li>
-      <li>Showcased data pipeline and preliminary results at Southeast Brain Tumor Society Meeting 2023.</li>
-    </ul>
-    <div class="sub-heading">Georgia Tech School of Biology | Petit Undergraduate Research Scholar | Atlanta, GA | May 2018 - May 2022</div>
-    <ul>
-      <li>Wrote Python programs to conduct multiple feature analysis of calcium pulses of migrating neural crest cells.</li>
-      <li>Presented work in 2022 Southeast Developmental Biology Meeting, winning best undergraduate poster.</li>
-    </ul>
-    <div class="sub-heading">Georgia Tech School of Mathematics/Computer Science | Teaching Assistant | Atlanta, GA | May 2018 - May 2022</div>
-    <ul>
-      <li>Computer Science Teaching Assistant for Introduction to Computing.</li>
-      <li>Mathematics Teaching Assistant for Differential Calculus, Integral Calculus, Calculus for Life Science, and Differential Equations.</li>
-    </ul>
-  </section>
+  <footer>
+    © <span id="year"></span> Kevin Yin. Built with HTML & CSS. Hosted on GitHub Pages.
+  </footer>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <ul>
-      <li><strong>Teaching 2019:</strong> Joyner, D. A., et al. "From Clusters to Content: Using Code Clustering for Course Improvement." SIGCSE, 2019.</li>
-      <li><strong>Biology 2020:</strong> Mo, J., et al. "Humanized Neurofibroma Model from Induced Pluripotent Stem Cells." JCI, 2020.</li>
-    </ul>
-  </section>
-
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li><strong>Languages:</strong> Python, Golang, R, SQL, Java</li>
-      <li><strong>Technologies:</strong> Kubernetes, Docker, Linux, Git, AWS, Jenkins, Flask, PostgreSQL</li>
-      <li><strong>Skills:</strong> Cloud Infrastructure, Cloud Computing, Backend Development, CI/CD Pipeline, Core Dump Analysis, Machine Learning</li>
-    </ul>
-  </section>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
